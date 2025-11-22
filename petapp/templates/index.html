@@ -1,0 +1,212 @@
+{% extends 'main.html' %}
+{% load static%}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/home.css' %}">
+    <link rel="stylesheet" href="{% static '/css/nav.css' %}">
+    <link rel="stylesheet" href="{% static '/css/footer.css' %}">
+    <title>Home</title>
+    <script type="text/javascript">
+		var user = '{{request.user}}'
+
+		function getToken(name) {
+		    var cookieValue = null;
+		    if (document.cookie && document.cookie !== '') {
+		        var cookies = document.cookie.split(';');
+		        for (var i = 0; i < cookies.length; i++) {
+		            var cookie = cookies[i].trim();
+		            // Does this cookie string begin with the name we want?
+		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                break;
+		            }
+		        }
+		    }
+		    return cookieValue;
+		}
+		var csrftoken = getToken('csrftoken')
+
+		function getCookie(name) {
+		    // Split cookie string and get all individual name=value pairs in an array
+		    var cookieArr = document.cookie.split(";");
+
+		    // Loop through the array elements
+		    for(var i = 0; i < cookieArr.length; i++) {
+		        var cookiePair = cookieArr[i].split("=");
+
+		        /* Removing whitespace at the beginning of the cookie name
+		        and compare it with the given string */
+		        if(name == cookiePair[0].trim()) {
+		            // Decode the cookie value and return
+		            return decodeURIComponent(cookiePair[1]);
+		        }
+		    }
+
+		    // Return null if not found
+		    return null;
+		}
+		var cart = JSON.parse(getCookie('cart'))
+
+		if (cart == undefined){
+			cart = {}
+			console.log('Cart Created!', cart)
+			document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
+		}
+		console.log('Cart:', cart)
+	
+	</script>
+
+</head>
+<body>
+    <!-- navbar -->
+    {% comment %} <nav class="navbar"></nav> {% endcomment %}
+    <!-- header -->
+    <header class="hero-section">
+        <img src="{% static '/img/default-pet-shops-7.png' %}" alt="" class="hero-img">
+        <div class="content">
+            <img src="{% static '/img/Picture1.png' %}" alt="" class="image">
+            <p class="sub-heading">best online shop for buying bet </p>
+        </div>
+    </header>
+    <!-- cards container -->
+    {% if Cats %}
+    <section class="product">
+        <h2 class="product-category">besst Cats</h2>
+        <button class="pre-btn"><img src="{% static '/img/arrow.png' %}" alt=""></button>
+        <button class="nxt-btn"><img src="{% static '/img/arrow.png' %}" alt=""></button>
+        <div class="product-container">
+            {%for cat in Cats%}
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount">{{cat.product_discount_price}}%</span>
+                    <img src=" {{cat.product_img.url}}" alt="" class="product-img">
+                </div>
+                <div class="product-content">
+                    <h6>name: {{cat.product_name|slice:'0:8'|capfirst}}...</h6>
+                    <button class="add-btn update-cart btn" data-product="{{cat.id}}" data-action="add">Add</button>
+                </div>
+                <div class="product-detail">
+                    <a href="{% url 'product-detailList' cat.slug %}" style="text-decoration: none;color:red"> veiw</a>
+                    <h4><span style="color: red;">{{cat.product_sell_price}}EGP</span><span style="padding:0 3px;color: rgb(194, 198, 201); text-decoration:line-through ">{{cat.product_price}}EGP</span></h4>
+                </div>
+                
+            </div>
+            {% endfor %}
+            
+        </div>
+    </section>
+    {%endif%}
+    <!-- collection -->
+    <section class="collection-container">
+        <a href="{%url 'product-sp' 'Cat' %}" class="collection">
+            <img src="{% static '/img/Cat.jpg' %}" alt="#">
+            <p class="collection-title">Cat <br> collection </p>
+        </a>
+        <a href="{%url 'product-sp' 'Dog' %}" class="collection">
+            <img src="{% static '/img/Dog.jpg' %}" alt="#">
+            <p class="collection-title">Dog <br> collection </p>
+        </a>
+        <a href="{%url 'product-sp' 'accessories' %}" class="collection">
+            <img src="{% static '/img/Accessoris.jpg' %}" alt="#">
+            <p class="collection-title">accessories <br> collection </p>
+        </a>
+    </section>
+     <!-- cards container -->
+     {% if discoutProduct  %}
+     <section class="product">
+        <h2 class="product-category">besst Discount</h2>
+        <button class="pre-btn"><img src="{% static '/img/arrow.png' %}" alt=""></button>
+        <button class="nxt-btn"><img src="{% static '/img/arrow.png' %}" alt=""></button>
+        <div class="product-container">
+            {%for discount in discoutProduct%}
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount">{{discount.product_discount_price}}%</span>
+                    <img src=" {{discount.product_img.url}}" alt="" class="product-img">
+                </div>
+                <div class="product-content">
+                    <h6>name: {{discount.product_name|slice:'0:8'|capfirst}}...</h6>
+                    <button class="add-btn update-cart btn" data-product="{{discount.id}}" data-action="add">Add</button>
+                </div>
+                <div class="product-detail">
+                    <a href="{% url 'product-detailList' discount.slug %}" style="text-decoration: none;color:red"> veiw</a>
+                    <h4><span style="color: red;">{{discount.product_sell_price}}EGP</span><span style="padding:0 3px;color: rgb(194, 198, 201); text-decoration:line-through ">{{discount.product_price}}EGP</span></h4>
+                </div>
+                
+            </div>
+            {% endfor %}
+            
+        </div>
+    </section>
+    {%endif%}
+    <!-- {% if Dogs %} -->
+    <section class="product">
+        <h2 class="product-category">besst Dogs</h2>
+        <button class="pre-btn"><img src="{% static '/img/arrow.png' %}" alt=""></button>
+        <button class="nxt-btn"><img src="{% static '/img/arrow.png' %}" alt=""></button>
+        <div class="product-container">
+            {%for product1 in Dogs%}
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount">{{product1.product_discount_price}}%</span>
+                    <img src=" {{product1.product_img.url}}" alt="" class="product-img">
+                </div>
+                <div class="product-content">
+                    <h6>name: {{product1.product_name|slice:'0:8'|capfirst}}...</h6>
+                    <button class="add-btn update-cart btn card-btn" data-product="{{product1.id}}" data-action="add">Add</button>
+                 </div>
+                <div class="product-detail">
+                    <a href="{% url 'product-detailList' product1.slug %}" style="text-decoration: none;color:red"> veiw</a>
+                    <h4><span style="color: red;">{{product1.product_sell_price}}EGP</span><span style="padding:0 3px;color: rgb(194, 198, 201); text-decoration:line-through ">{{dog.product_price}}EGP</span></h4>
+                </div>
+                
+            </div>
+            {% endfor %}
+            
+        </div>
+    </section>
+    <!-- {%endif%} -->
+    <!-- footer -->
+    <script src="{% static '/js/nav-foot.js' %}"></script>
+    <script src="{% static '/js/home.js' %}"></script>
+    <script src="{% static '/js/product-card.js'%}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBEiGOjWjSCO6V7FomFXKsCugN0Nrm4lCU",
+      authDomain: "petstore-3b315.firebaseapp.com",
+      projectId: "petstore-3b315",
+      storageBucket: "petstore-3b315.appspot.com",
+      messagingSenderId: "12788519207",
+      appId: "1:12788519207:web:bad76201064fb6597b5902",
+      measurementId: "G-SVH4QH9N8J"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+</html>
+{% endblock content %}
+
+

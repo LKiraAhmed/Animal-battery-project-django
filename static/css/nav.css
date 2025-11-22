@@ -1,0 +1,135 @@
+*{
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'roboto', sans-serif;
+}
+
+.navbar{
+    /* height: 100px; */
+    width: 100%;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    position: sticky;
+    background-color: #f5f5f5;
+    display: block !important;
+}
+
+.logo{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10vw;
+}
+.logo-img{
+    height: 60px;
+}
+
+.nav-item{
+    display: flex;
+    align-items: center;
+}
+.nav-item .search{
+    display: flex;
+    width: 500px;
+}
+.search .search-box{
+    border: 1px solid #d1d1d1;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 80%;
+    height: 40px;
+    padding: 10px;
+    text-transform: capitalize;
+    background: none;
+    outline: none;
+    color: #a9a9a9;
+    margin: 0;
+}
+.search-btn{
+    width: 20%;
+    height: 40px;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    background: #393939;
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 15px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 2%);
+}
+.search-box::placeholder{
+    color: #a9a9a9;
+}
+
+.nav-item .a{
+    margin-left: 20px;
+    position: relative;
+}
+.nav-item .a img{
+    width: 30px;
+    cursor: pointer;
+}
+
+.links-container{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #d1d1d1;
+    padding: 10px 10vw;
+}
+.link{
+    text-decoration: none;
+    margin: 0px 5px;
+    padding: 0px 10px;
+    text-transform: capitalize;
+    color: #383838;
+    transition: 0.5s;
+    opacity: 0.5;
+}
+.link:hover{
+    opacity: 1;
+}
+.links-item{display: block;}
+.login-logout-pop{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    background: #fff;
+    border-radius: 1rem;
+    top: 40px;
+    width: 200px;
+    transition: .5s;
+    border: 2px solid #f5f5f5;
+}.login-logout-pop::after{
+    content: '';
+    position: absolute;
+    top: -7.5px;
+    left: 50%;   
+    transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 5px;
+}.account-info{
+    font-size: 15px;
+    text-transform: capitalize;
+}#user-btn{
+    padding: 10px;
+    background: #383838;
+    color: #fff;
+    border: none;
+    outline: none;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-transform: capitalize;
+    cursor: pointer;
+}.hide{
+    pointer-events: none;
+    opacity: 0;
+}

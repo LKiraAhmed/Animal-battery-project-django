@@ -1,0 +1,125 @@
+{% load static%}
+
+<nav class="navbar">
+    <div class="logo">
+            <a href="{%url 'home' %}"><img src="{% static 'img/Picture1.png'%}" alt="" class="logo-img"></a>
+            <!-- <div class="nav-item">
+                <div class="search">
+                    <input type="text" placeholder="search pet name or food or products" class="search-box">
+                    <input type="button" value="search" class="search-btn">
+                </div> -->
+                <div class="nav-item">
+                    <form action="{% url 'search_products' %}" method="GET">
+                        <div class="search">
+                            <input type="text" placeholder="search pet name or food or products" class="search-box" name="q">
+                            <button type="submit" class="search-btn">search</button>
+                        </div>
+                    </form>
+                </div>
+            
+                <div class="a">
+                <img src="{% static 'img/user.png'%}" id="user-img" alt="">
+                {% if user.is_authenticated %}
+                <div class="login-logout-pop hide">
+                    <p class="account-info">Log in as, {{user.username}}</p>
+                    {% if customer %}
+                    <a href="{%url 'seller'%}"><button type="seller" class="btn" id="user-btn">Became a seller</button></a>
+                    {%else%}
+                    <a href="{%url 'DashBoard'%}"><button type="DashBoard" class="btn" id="user-btn">{{user.username}} DashBoard</button></a>
+                    {%endif%}
+                    <a href="{%url 'logout'%}"><button type="logout" class="btn" id="user-btn">Log out</button></a>
+                </div> 
+                {%else%}
+                <div class="login-logout-pop hide">
+                    <p class="account-info">Log in to place order</p>
+                    <a href="{%url 'login'%}"><button class="btn" id="user-btn"> Login </button></a>
+                    <a href="{%url 'doctor-sign'%}"><button class="btn" id="user-btn">Vent signup </button></a>
+                </div>
+                {% endif %}
+            </div>
+
+               
+
+                <a href="{% url 'card' %}" class="a"><img src="{% static 'img/cart.png' %}" alt=""></a>
+            </div>
+        </div>
+        <ul class="links-container">
+            <li class="links-item"><a href="{%url 'home'%}" class="link">Home</a></li>
+            <li class="links-item"><a href="{%url 'products'  %}" class="link">Products</a></li>
+            <li class="links-item"><a href="{%url 'product-sp' 'Dog' %}" class="link">Dog</a></li>
+            <li class="links-item"><a href="{%url 'product-sp' 'Cat' %}" class="link">Cat</a></li>
+            <li class="links-item"><a href="{%url 'product-sp' 'Bird' %}" class="link">Bird</a></li>
+            <li class="links-item"><a href="{%url 'product-sp' 'Fish' %}" class="link">Fish</a></li>
+        </ul>
+</nav>
+
+{% block content %}
+
+
+{% endblock content %}
+<footer class="foot">
+    <div class="footer-content">
+        <img src="{% static 'img/Picture1.png' %}" alt="" class="foot-logo">
+        <div class="footer-ul-category">
+            <ul class="category">
+                <li class="category-title">Cat</li>
+                <li><a href="#" class="footerlink">Cats</a></li>
+                <li><a href="#" class="footerlink">Food</a></li>
+                <li><a href="#" class="footerlink">Cages</a></li>
+                <li><a href="#" class="footerlink">vitmens</a></li>
+                <li><a href="#" class="footerlink">clothes</a></li>
+                <li><a href="#" class="footerlink">accessories</a></li>
+            </ul>
+            <ul class="category">
+                <li class="category-title">Dog</li>
+                <li><a href="#" class="footerlink">Dogs</a></li>
+                <li><a href="#" class="footerlink">Food</a></li>
+                <li><a href="#" class="footerlink">Cages</a></li>
+                <li><a href="#" class="footerlink">vitmens</a></li>
+                <li><a href="#" class="footerlink">clothes</a></li>
+                <li><a href="#" class="footerlink">accessories</a></li>
+            </ul>
+        </div>
+    </div>
+    <p class="footer-title">about our team</p>
+    <p class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem quibusdam o
+        fficia neque aliquid laudantium voluptate dolores, nostrum commodi soluta quae minima 
+        itaque inventore fuga, impedit incidunt, quis eum nihil enim.</p>
+    <p class="info">support Email:hazem12@gmail.com</p>
+    <p class="info">tel :12589545521</p>
+    <div class="footer-social-conatiner">
+        <div>
+            <a href="#" class="social-link">term & services</a>
+            <a href="#" class="social-link">privacy page</a>
+        </div>
+        <div>
+            <a href="#" class="social-link">facebook</a>
+            <a href="#" class="social-link">Twitter</a>
+            <a href="#" class="social-link">instgram</a>
+        </div>
+    </div>
+    <p class="footer-credit">best online pet shop in egypt </p>
+</footer>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBEiGOjWjSCO6V7FomFXKsCugN0Nrm4lCU",
+      authDomain: "petstore-3b315.firebaseapp.com",
+      projectId: "petstore-3b315",
+      storageBucket: "petstore-3b315.appspot.com",
+      messagingSenderId: "12788519207",
+      appId: "1:12788519207:web:bad76201064fb6597b5902",
+      measurementId: "G-SVH4QH9N8J"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>

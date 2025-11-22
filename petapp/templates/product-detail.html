@@ -1,0 +1,168 @@
+{% extends 'main.html' %}
+{% load static%}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product-detail.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+		var user = '{{request.user}}'
+
+		function getToken(name) {
+		    var cookieValue = null;
+		    if (document.cookie && document.cookie !== '') {
+		        var cookies = document.cookie.split(';');
+		        for (var i = 0; i < cookies.length; i++) {
+		            var cookie = cookies[i].trim();
+		            // Does this cookie string begin with the name we want?
+		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                break;
+		            }
+		        }
+		    }
+		    return cookieValue;
+		}
+		var csrftoken = getToken('csrftoken')
+
+		function getCookie(name) {
+		    // Split cookie string and get all individual name=value pairs in an array
+		    var cookieArr = document.cookie.split(";");
+
+		    // Loop through the array elements
+		    for(var i = 0; i < cookieArr.length; i++) {
+		        var cookiePair = cookieArr[i].split("=");
+
+		        /* Removing whitespace at the beginning of the cookie name
+		        and compare it with the given string */
+		        if(name == cookiePair[0].trim()) {
+		            // Decode the cookie value and return
+		            return decodeURIComponent(cookiePair[1]);
+		        }
+		    }
+
+		    // Return null if not found
+		    return null;
+		}
+		var cart = JSON.parse(getCookie('cart'))
+
+		if (cart == undefined){
+			cart = {}
+			console.log('Cart Created!', cart)
+			document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
+		}
+		console.log('Cart:', cart)
+	
+	</script>
+    <title>product- {{data.slug}}</title>
+</head>
+<body>
+{%if data%}
+<section class="product-details">
+    <div class="image-slider">
+        <img src="{{data.product_img.url}}" alt="" class="backimg">
+        <div class="product-imgs">
+            {% if imgs %}
+            {%for img in imgs%}
+                <img src="{{img.product_img.url}}" alt="">
+                {%endfor%}
+            {% else %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="details">
+        <h2 class="brand-product">{{data.product_name}}</h2>
+        <p class="product-short-des">{{data.product_shot_des}}</p>
+        <span class="product-price">{{data.product_sell_price}} EGP </span>
+        <span class="product-actual-price">{{data.product_price}} EGP</span>
+        <span class="product-discount">( {{data.product_discount_price}} % )</span>
+        <button class="add-btn update-cart btn card-btn" data-product="{{data.id}}" data-action="add">Add</button>
+        <button class="btn">add to wishlist</button>
+    </div>
+</section>
+<!-- detail -->
+<section class="detail-des">
+    <h2 class="heading">Description</h2>
+    <p class="des">{{data.product_description}}
+    </p>
+</section>
+{%else%}
+    <h1>the is no product to veiw</h1>
+{%endif%}
+    <!-- cards container -->
+    {% if discoutProduct  %}
+    <section class="product">
+       <h2 class="product-category">besst Discount</h2>
+       <button class="pre-btn"><img src="{% static '/img/arrow.png' %}" alt=""></button>
+       <button class="nxt-btn"><img src="{% static '/img/arrow.png' %}" alt=""></button>
+       <div class="product-container">
+           {%for product1 in discoutProduct%}
+           <div class="product-card">
+               <div class="product-image">
+                   <span class="discount">{{product1.product_discount_price}}%</span>
+                   <img src=" {{product1.product_img.url}}" alt="" class="product-img">
+               </div>
+               <div class="product-content">
+                   <h6>name: {{product1.product_name|slice:'0:8'|capfirst}}...</h6>
+                   <button class="add-btn update-cart btn card-btn" data-product="{{product1.id}}" data-action="add">Add</button>
+                </div>
+               <div class="product-detail">
+                   <a href="{% url 'product-detailList' product1.slug %}" style="text-decoration: none;color:red"> veiw</a>
+                   <h4><span style="color: red;">{{product1.product_sell_price}}EGP</span><span style="padding:0 3px;color: rgb(194, 198, 201); text-decoration:line-through ">{{product1.product_price}}EGP</span></h4>
+               </div>
+               
+           </div>
+           {% endfor %}
+           
+       </div>
+   </section>
+   {%endif%}
+   {% if Dogs %}
+   <section class="product">
+       <h2 class="product-category">besst Dogs</h2>
+       <button class="pre-btn"><img src="{% static '/img/arrow.png' %}" alt=""></button>
+       <button class="nxt-btn"><img src="{% static '/img/arrow.png' %}" alt=""></button>
+       <div class="product-container">
+           {%for product1 in Dogs%}
+           <div class="product-card">
+               <div class="product-image">
+                   <span class="discount">{{product1.product_discount_price}}%</span>
+                   <img src=" {{product1.product_img.url}}" alt="" class="product-img">
+               </div>
+               <div class="product-content">
+                   <h6>name: {{product1.product_name|slice:'0:8'|capfirst}}...</h6>
+                   <button class="add-btn update-cart btn card-btn" data-product="{{product1.id}}" data-action="add">Add</button>
+                </div>
+               <div class="product-detail">
+                   <a href="{% url 'product-detailList' product1.slug %}" style="text-decoration: none;color:red"> veiw</a>
+                   <h4><span style="color: red;">{{product1.product_sell_price}}EGP</span><span style="padding:0 3px;color: rgb(194, 198, 201); text-decoration:line-through ">{{product1.product_price}}EGP</span></h4>
+               </div>
+               
+           </div>
+           {% endfor %}
+           
+       </div>
+   </section>
+   {%endif%}
+    <script src="{% static 'js/nav-foot.js' %}"></script>
+    <script src="{% static 'js/home.js' %}"></script>
+    <script src="{% static 'js/prduct-detail.js' %}"></script>
+
+    <script src="{% static '/js/product-card.js'%}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+{% endblock content %}

@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor sign</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+
+</head>
+<body>
+    <div class="body">
+        <img src="{% static 'img/loader.gif' %}" alt="" class="loader">
+        <div class="alert-box">
+            <img src="{% static 'img/error.png' %}" alt="" class="alert-img">
+            <p class="alert-msg">alert massage</p>
+        </div>
+        <div class="container">
+            <a href="{% url 'home' %}"><img src="{% static 'img/Picture1-wh.png' %}" alt="" class="logo"></a>
+            <form method="POST" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.username}}
+                {{form.email}}
+                {{form.password1}}
+                {{form.password2}}
+                <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" autocomplete="off" id="number" placeholder="phone" name="number" required >
+                <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" autocomplete="off" id="number" placeholder="vent_phone" name="vent_number" required >
+                <textarea name="business-add" id="business-add"  placeholder="address"></textarea>
+                <textarea name="about" id="about" placeholder="about"></textarea>
+                <div class="pictures">
+                    <input type="file" name="profile_pic" class="pic" accept="image/*">
+                    <div class="vent">
+                        <input type="file" name="vent_pic" class="pic" id="vent_pic" multiple accept="image/*">
+                        <label for="vent_pic">upload max 4 image</label>
+                    </div>
+                </div>
+                <input type="checkbox" class="checkbox" id="terms-and-cond">
+                <label for="terms-and-cond" style="display: inline-block;">I read all the <a href="#" >terms and condition</a> and i approve</label>
+                <input type="submit"  class="submit-btn" value="create account">
+            </form>
+            <p class="link" style="margin: 20px 18% 0 0;padding-bottom:5%;">already have one? <a href="{%url 'login'%}"> Log in here </a></p>
+        </div>
+    </div>
+    <script src="{% static 'js/signup.js' %}"></script>
+    <script>
+        let form_fields = document.getElementsByTagName('input')
+        form_fields[1].placeholder = 'username'
+        form_fields[2].placeholder = 'email'
+        form_fields[3].placeholder = 'password'
+        form_fields[4].placeholder = 'confirm password'
+    </script>
+</body>
+</html>

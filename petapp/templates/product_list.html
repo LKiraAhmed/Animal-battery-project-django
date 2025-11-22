@@ -1,0 +1,17 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    {% if products %}
+        <ul>
+            {% for product in products %}
+                {{ product.product_name }}
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No products found</p>
+    {% endif %}
+</body></body>
+</html>

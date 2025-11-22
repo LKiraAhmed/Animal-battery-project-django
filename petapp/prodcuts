@@ -1,0 +1,247 @@
+<div class="col-lg-4">
+				<img class="thumbnail" src="{% static 'img/Cat.jpg'%}">
+				<div class="box-element product">
+					<h6><strong>Cat</strong></h6>
+					<h4 style="display: inline-block; float: right; position: relative;top: -20px">
+						<strong>$200EGP</strong>
+					</h4>
+					<hr>
+	
+					<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+					
+					<a class="btn btn-outline-success" href="{% url 'product-detail' %}">View</a>	
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<img class="thumbnail" src="{% static 'img/Cat.jpg'%}">
+				<div class="box-element product">
+					<h6><strong>Cat</strong></h6>
+					<h4 style="display: inline-block; float: right; position: relative;top: -20px">
+						<strong>$200EGP</strong>
+					</h4>
+					<hr>
+	
+					<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+					
+					<a class="btn btn-outline-success" href="{% url 'product-detail' %}">View</a>	
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<img class="thumbnail" src="{% static 'img/Cat.jpg'%}">
+				<div class="box-element product">
+					<h6><strong>Cat</strong></h6>
+					<h4 style="display: inline-block; float: right; position: relative;top: -20px">
+						<strong>$200EGP</strong>
+					</h4>
+					<hr>
+	
+					<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+					
+					<a class="btn btn-outline-success" href="{% url 'product-detail' %}">View</a>	
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<img class="thumbnail" src="{% static 'img/Cat.jpg'%}">
+				<div class="box-element product">
+					<h6><strong>Cat</strong></h6>
+					<h4 style="display: inline-block; float: right; position: relative;top: -20px">
+						<strong>$200EGP</strong>
+					</h4>
+					<hr>
+	
+					<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+					
+					<a class="btn btn-outline-success" href="{% url 'product-detail' %}">View</a>	
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<img class="thumbnail" src="{% static 'img/Cat.jpg'%}">
+				<div class="box-element product">
+					<h6><strong>Cat</strong></h6>
+					<h4 style="display: inline-block; float: right; position: relative;top: -20px">
+						<strong>$200EGP</strong>
+					</h4>
+					<hr>
+	
+					<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+					
+					<a class="btn btn-outline-success" href="{% url 'product-detail' %}">View</a>	
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<img class="thumbnail" src="{% static 'img/Cat.jpg'%}">
+				<div class="box-element product">
+					<h6><strong>Cat</strong></h6>
+					<h4 style="display: inline-block; float: right; position: relative;top: -20px">
+						<strong>$200EGP</strong>
+					</h4>
+					<hr>
+	
+					<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+					
+					<a class="btn btn-outline-success" href="{% url 'product-detail' %}">View</a>	
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<img class="thumbnail" src="{% static 'img/Cat.jpg'%}">
+				<div class="box-element product">
+					<h6><strong>Cat</strong></h6>
+					<h4 style="display: inline-block; float: right; position: relative;top: -20px">
+						<strong>$200EGP</strong>
+					</h4>
+					<hr>
+	
+					<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+					
+					<a class="btn btn-outline-success" href="{% url 'product-detail' %}">View</a>	
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<img class="thumbnail" src="{% static 'img/Cat.jpg'%}">
+				<div class="box-element product">
+					<h6><strong>Cat</strong></h6>
+					<h4 style="display: inline-block; float: right; position: relative;top: -20px">
+						<strong>$200EGP</strong>
+					</h4>
+					<hr>
+	
+					<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+					
+					<a class="btn btn-outline-success" href="{% url 'product-detail' %}">View</a>	
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<img class="thumbnail" src="{% static 'img/Cat.jpg'%}">
+				<div class="box-element product">
+					<h6><strong>Cat</strong></h6>
+					<h4 style="display: inline-block; float: right; position: relative;top: -20px">
+						<strong>$200EGP</strong>
+					</h4>
+					<hr>
+	
+					<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+					
+					<a class="btn btn-outline-success" href="{% url 'product-detail' %}">View</a>	
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<img class="thumbnail" src="{% static 'img/Cat.jpg'%}">
+				<div class="box-element product">
+					<h6><strong>Cat</strong></h6>
+					<h4 style="display: inline-block; float: right; position: relative;top: -20px">
+						<strong>$200EGP</strong>
+					</h4>
+					<hr>
+	
+					<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+					
+					<a class="btn btn-outline-success" href="{% url 'product-detail' %}">View</a>	
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<img class="thumbnail" src="{% static 'img/Cat.jpg'%}">
+				<div class="box-element product">
+					<h6><strong>Cat</strong></h6>
+					<h4 style="display: inline-block; float: right; position: relative;top: -20px">
+						<strong>$200EGP</strong>
+					</h4>
+					<hr>
+	
+					<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+					
+					<a class="btn btn-outline-success" href="{% url 'product-detail' %}">View</a>	
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<img class="thumbnail" src="{% static 'img/Cat.jpg'%}">
+				<div class="box-element product">
+					<h6><strong>Cat</strong></h6>
+					<h4 style="display: inline-block; float: right; position: relative;top: -20px">
+						<strong>$200EGP</strong>
+					</h4>
+					<hr>
+	
+					<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+					
+					<a class="btn btn-outline-success" href="{% url 'product-detail' %}">View</a>	
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+
+			<div class="product-card">
+                <div class="product-image">
+                    <span class="discount">15%</span>
+                    <img src="{% static '/img/Dog.jpg' %}" alt="" class="product-img">
+                </div>
+                <div class="product-content">
+                    <h6>name</h6>
+                    <button class="add-btn">Add</button>
+                </div>
+                <div class="product-detail">
+                    <a href="{%url 'product-detail'%}" style="text-decoration: none;color:red"> veiw</a>
+                    <h4><span>500EGP</span><span style="padding:0 3px;color: rgb(194, 198, 201); text-decoration:line-through ">590EGP</span></h4>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount">15%</span>
+                    <img src="{% static '/img/Cat.jpg' %}" alt="" class="product-img">
+                </div>
+                <div class="product-content">
+                    <h6>name</h6>
+                    <button class="add-btn">Add</button>
+                </div>
+                <div class="product-detail">
+                    <a href="{%url 'product-detail'%}" style="text-decoration: none;color:red"> veiw</a>
+                    <h4><span>500EGP</span><span style="padding:0 3px;color: rgb(194, 198, 201); text-decoration:line-through ">590EGP</span></h4>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount">15%</span>
+                    <img src="{% static '/img/Dog.jpg' %}" alt="" class="product-img">
+                </div>
+                <div class="product-content">
+                    <h6>name</h6>
+                    <button class="add-btn">Add</button>
+                </div>
+                <div class="product-detail">
+                    <a href="{%url 'product-detail'%}" style="text-decoration: none;color:red"> veiw</a>
+                    <h4><span>500EGP</span><span style="padding:0 3px;color: rgb(194, 198, 201); text-decoration:line-through ">590EGP</span></h4>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount">15%</span>
+                    <img src="{% static '/img/Cat.jpg' %}" alt="" class="product-img">
+                </div>
+                <div class="product-content">
+                    <h6>name</h6>
+                    <button class="add-btn">Add</button>
+                </div>
+                <div class="product-detail">
+                    <a href="{%url 'product-detail'%}" style="text-decoration: none;color:red"> veiw</a>
+                    <h4><span>500EGP</span><span style="padding:0 3px;color: rgb(194, 198, 201); text-decoration:line-through ">590EGP</span></h4>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount">15%</span>
+                    <img src="{% static '/img/Dog.jpg' %}" alt="" class="product-img">
+                </div>
+                <div class="product-content">
+                    <h6>name</h6>
+                    <button class="add-btn">Add</button>
+                </div>
+                <div class="product-detail">
+                    <a href="{%url 'product-detail'%}" style="text-decoration: none;color:red"> veiw</a>
+                    <h4><span>500EGP</span><span style="padding:0 3px;color: rgb(194, 198, 201); text-decoration:line-through ">590EGP</span></h4>
+                </div>
+            </div>

@@ -1,0 +1,54 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Became a seller</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/seller.css' %}">
+</head>
+<body>
+
+    <!-- massage to apply became seller -->
+    <div class="contain">
+        <img src="{% static 'img/loader.gif' %}" alt="" class="loader">
+        <div class="alert-box">
+            <img src="{% static 'img/error.png' %}" alt="" class="alert-img">
+            <p class="alert-msg">alert massage</p>
+        </div>
+    
+        <a href="{% url 'home' %}"><img src="{% static 'img/Picture1-wh.png' %}" alt="" class="logo"></a>
+        <!-- became a seller -->
+        <div class="became-seller hide">
+            <p class="heading">became a Seller</p>
+            <p class="des"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam corrupti a ut aperiam tempora? 
+                Qui praesentium, assumenda voluptates blanditiis a laborum. Delectus nam dolor, dolorem similique quam ipsa numquam
+                corporis itaque. Impedit veritatis est consectetur sint iure suscipit voluptate autem quasi molestiae dolores ad 
+                tempora repudiandae minus laudantium, ut fugiat recusandae libero odio veniam debitis accusamus illo earum, 
+                repudiandae, animi necessitatibus officiis tempore pariatur corrupti et rem a accusamus doloremque? 
+                </p>
+            <button class="btn" id="apply-btn">apply for seller account</button>
+        </div>
+    </div>
+
+<!-- apply to became seller form -->
+    <form action="" class="apply-form hide" method="POST">
+        {% csrf_token %}
+        <input type="text" name="business-name" id="business-name"
+        placeholder="business name / shop name">
+        <textarea name="business-add" id="business-add"  placeholder="address"></textarea>
+        <textarea name="about" id="about" placeholder="about"></textarea>
+        <input type="tel" name="phone" placeholder="phone" id="phone">
+        <input type="checkbox" class="checkbox" id="legitInfo">
+        <label for="legitInfo">all the information is legit</label><br>
+        <input type="checkbox" class="checkbox" id="terms-and-cond">
+        <label for="terms-and-cond">I read all the <a href="#" >terms and condition</a> and i approve</label>
+        <button type="submit" class="submit-btn" id="apply-form-btn">apply</button>
+        
+    </form>
+
+    <script src="{% static 'js/seller.js' %}"></script>
+</body>
+</html>

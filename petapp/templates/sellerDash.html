@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+{% load static%}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/nav.css' %}">
+    <link rel="stylesheet" href="{% static '/css/footer.css' %}">  
+    <link rel="stylesheet" href="{% static '/css/Dashboard.css' %}">  
+    <title>{{user.username}} DashBoard</title>
+</head>
+<body>
+    <img src="{% static 'img/loader.gif' %}" alt="" class="loader loader-list">
+    <div class="product-listing hide">
+        <div class="add-product">
+            <p class="add-product-title">add product{{product.product_price}}
+            </p>
+            <a href="{% url 'add-product' %}" class="btn">add product</a>
+        </div>
+        <img src="{% static 'img/no-products.png' %}" class="no-product-image" alt="">
+    </div>
+    <script>
+        let loader = document.querySelector('.loader')
+        let productListing = document.querySelector('.product-listing')
+        window.onload = () => {
+            loader.style.display = 'block';
+            setTimeout(()=>{
+                productListing.classList.remove('hide')
+                loader.style.display = 'none'
+            },800)
+        }
+    </script>
+    <script src="{% static '/js/nav-foot.js' %}"></script>
+
+</body>
+</html>
+{% endblock %}

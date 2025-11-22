@@ -1,0 +1,91 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add Product</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/add-product.css' %}">
+
+</head>
+<body>
+    <div class="contain">
+        <img src="{% static 'img/loader.gif' %}" alt="" class="loader">
+        <div class="alert-box">
+            <img src="{% static 'img/error.png' %}" alt="" class="alert-img">
+            <p class="alert-msg">alert massage</p>
+        </div>
+    </div>
+    <a href="{%url 'home'%}"><img src="{% static 'img/Picture1-wh.png' %}" alt="" class="logo"></a>
+    <form action="" class="add-product" id="add-product" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name="product-name" id="product-name" maxlength="50" placeholder="product-name">
+        <input type="text" name="sort-des" id="short-des" maxlength="100" placeholder="short line about the product">
+        <textarea name="Detail" id="des" placeholder="description"></textarea>
+
+        <!-- product image conatiner -->
+
+        <div class="product-info">
+             <div class="select-types">
+		<input type="number" name="stock" min="10" placeholder="nuber of product in the stock" class="stock" id="stock">
+		    <select name="pet-Type" id="tags">
+		        <option value="0" selected disabled class="disabled">select your pet type</option>
+		        <option value="Cat" >Cat</option>
+		        <option value="Dog" >Dog</option>
+		        <option value="Bird" >Bird</option>
+		        <option value="Fish" >Fish</option>
+		    </select>
+		    <select name="categories" id="tags">
+		        <option value="0" selected disabled class="disabled">categories List</option>
+                <option value="none" >none </option>
+		        <option value="Food" >Food</option>
+		        <option value="Clothes" >Clothes </option>
+		        <option value="accessories" >accessories </option>
+		        <option value="Medicine" >Medicine </option>
+		        <option value="Toys" >Toys </option>
+		        <option value="Cages" >Cages </option>
+		    </select>
+		</div>
+            <div class="upload-image-section">
+                
+                <p class="text"><img src="{% static 'img/camera.png' %}" alt="">upload image</p>
+                <div class="upload-catalouge">
+                    <input type="file" name="first-file-upload" id="first-file-upload" hidden class="fileupload" accept="image/*">
+                    <label for="first-file-upload" class="upload-image"><span class="uploaded">uploaded</span></label>
+
+                    <input type="file" name="second-file-upload" id="second-file-upload" hidden class="fileupload" accept="image/*" >
+                    <label for="second-file-upload" class="upload-image"><span class="uploaded">uploaded</span></label>
+                    
+                    <input type="file" name="third-file-upload" id="third-file-upload" hidden class="fileupload" accept="image/*">
+                    <label for="third-file-upload" class="upload-image"><span class="uploaded">uploaded</span></label>
+                    
+                    <input type="file" name="last-file-upload" id="last-file-upload" hidden class="fileupload" accept="image/*">
+                    <label for="last-file-upload" class="upload-image"><span class="uploaded">uploaded</span></label>
+                
+                </div>
+            </div>
+            
+		<div class="product-price">
+		    <input type="number" id="actual-price" placeholder="actual price" step="0.001" name="price" >
+		    <input type="number" id="discount-price" placeholder="discount price" step="0.001" name="discount-price" >
+		    <input type="number" id="sell-price" placeholder="selling price" step="0.001" name="sell-price">
+
+		</div>
+        </div>
+
+        <!-- product-price -->
+
+
+        <input type="checkbox" class="checkbox" id="terms-and-cond">
+        <label for="terms-and-cond">I read all the <a href="#" >terms and condition</a> and i approve</label>
+        
+        <div class="buttons">
+            <input type="submit" class="btn" id="add-btn" value="add product">
+            <input type="button" class="btn" id="save-btn" value="save draft">
+        </div>
+    </form>
+    <script src="{% static 'js/add-product.js'%}"></script>
+</body>
+</html>
