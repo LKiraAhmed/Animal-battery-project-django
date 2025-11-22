@@ -1,99 +1,68 @@
-Animal Breeding Project .
+✅ 🔹 Animal Breeding & Veterinary E-Commerce Platform (Django)
 
-Veterinary E-Commerce Platform (Django Project — Learning & Practice)
-I built this project as part of my journey to learn Django and backend development.
-The application is not fully completed, but it includes a large number of real-world features, API endpoints, and models that helped me understand how to structure professional Django applications.
+A practical Django project I built while learning backend development.
+Although the project is not fully completed, it includes many real-world features, multiple API endpoints, and organized modules that helped me understand how to structure professional Django applications.
 
-Key Features and Endpoints I Implemented
+🚀 Main Features
 
-User Authentication:
-
-Login, Signup, Logout
-
-Dashboard for sellers
-
-Doctor signup module
+User Authentication: Login, Signup, Logout, Seller Dashboard, Doctor Registration
 
 Product Management:
 
-Multiple product categories (Dogs, Cats, Birds, Fish)
+Categories for Dogs, Cats, Birds, and Fish
 
-Accessories, Beds, Food, Toys, Treats, Grooming, Flea & Tick controls
+Accessories, Beds, Food, Toys, Treats, Grooming, Flea & Tick products
 
-Product details, product types, product cards, and add-product functionality
+Product details, product types, product cards, add-product
 
 Search System:
 
-Template-based search view (search_products)
+Template search
 
-API search endpoint (product_search_api and search_api)
-
-Class-based search list/detail views
+API search (multiple search endpoints)
 
 Shopping & Orders:
 
-Cart page
+Cart page, Checkout
 
-Checkout process
+Update cart items (AJAX)
 
-Update cart items via AJAX (update_item)
+Order processing
 
-Process orders (process_order)
+Profiles & Shipping:
 
-Shipping & Profiles:
+User Profiles API
 
-User profile API
+Shipping Addresses API
 
-Shipping address API
-
-Order & Order Item management
+Orders + Order Items management
 
 Doctors Module:
 
 Veterinary doctor profiles
 
-Doctor photos
+Doctor photos & listings
 
-Doctor vent listings and details
+REST API (DRF):
 
-REST API (Django REST Framework):
+Full CRUD for Dogs, Cats, Birds, Fish
 
-Full CRUD API endpoints for all animals categories:
+Additional category APIs: Accessories, Beds, Food, Flea & Tick, Treats, Wet Food
 
-Dogs
+📚 What I Learned
 
-Cats
+Structuring large Django applications
 
-Birds
+URL routing with function-based & class-based views
 
-Fish
+Working with Django REST Framework
 
-Additional category-specific APIs such as:
+Serializers, generic views, and reusable endpoints
 
-Accessories
+Handling ImageFields and media
 
-Beds
+Building multi-module, scalable backends
 
-Food
+✔️ Project Status
 
-Flea & Tick
-
-Treats & Biscuits
-
-Wet Food
-
-What I Learned
-
-How to build structured Django apps
-
-URL routing (function-based & class-based views)
-
-Serializers, APIViews & generic class-based views
-
-Working with ImageFields and media files
-
-Building reusable endpoints
-
-Organizing large Django projects with many features
-
-This project helped me understand Django deeply, even though it is not fully completed.
+This project is still incomplete, but it served as a solid learning experience and helped me build strong Django backend skills.
